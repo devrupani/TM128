@@ -1,0 +1,59 @@
+<p>edit-event works!</p>
+<!-- edit-event.component.html -->
+<!-- <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title">
+    <label for="category">Category:</label>
+    <input type="text" id="category" formControlName="event_category">
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <label for="venue">Venue:</label>
+    <input type="text" id="venue" formControlName="venue">
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="date">
+    <button type="submit">Save Changes</button>
+</form> -->
+<div class="container" *ngFor="let item of evt  ">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="mt-5">
+        <!-- title -->
+        {{item['title']}}
+        <label>Title: </label>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="title" formControlName="title">{{item.title}}
+        </div>
+
+
+        <label>Description: </label>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="description" placeholder="description"
+                formControlName="description">
+        </div>
+
+
+        <label>Venue : </label>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="venue" placeholder="venue" formControlName="venue">
+        </div>
+
+
+        <label>Date : </label>
+        <div class="mb-3">
+            <input type="date" class="form-control" formControlName="date">
+        </div>
+
+
+        <label>Category:
+            <select formControlName="event_category">
+                <option value="">Select a category</option>
+                <option value="workshop">Workshop</option>
+                <option value="seminar">Seminar</option>
+                <option value="conference">Conference</option>
+            </select>
+
+        </label>
+        <hr>
+        <button type="submit" class="btn btn-primary btn-sm">Edit Event</button>
+    </form>
+
+
+</div>
